@@ -79,6 +79,11 @@ _G.packer_plugins = {
     path = "/home/cloo/.local/share/nvim/site/pack/packer/start/catppuccin",
     url = "https://github.com/catppuccin/nvim"
   },
+  ["data-viewer.nvim"] = {
+    loaded = true,
+    path = "/home/cloo/.local/share/nvim/site/pack/packer/start/data-viewer.nvim",
+    url = "https://github.com/vidocqh/data-viewer.nvim"
+  },
   ["packer.nvim"] = {
     loaded = true,
     path = "/home/cloo/.local/share/nvim/site/pack/packer/start/packer.nvim",
