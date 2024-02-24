@@ -1,5 +1,8 @@
 -- This file can be loaded by calling `lua require('plugins')` from your init.vim
 
+-- install packer:
+-- git clone --depth 1 https://github.com/wbthomason/packer.nvim\  ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+
 -- Only required if you have packer configured as `opt`
 vim.cmd [[packadd packer.nvim]]
 
@@ -34,4 +37,14 @@ return require('packer').startup(function(use)
 	use {"vidocqh/data-viewer.nvim"}
 	use { 'mbbill/undotree' }
 	use { "catppuccin/nvim", as = "catppuccin" }
+    use {
+        'nvim-treesitter/nvim-treesitter',
+        run = ':TSUpdate'
+    }	
+    use {
+  'nvim-tree/nvim-tree.lua',
+  requires = {
+    'nvim-tree/nvim-web-devicons', -- optional
+   },
+}
 end)
