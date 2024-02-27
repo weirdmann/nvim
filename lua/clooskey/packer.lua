@@ -114,4 +114,5 @@ use {
   'nvim-lualine/lualine.nvim',
   requires = { 'nvim-tree/nvim-web-devicons', opt = true }
 }
+use 'karb94/neoscroll.nvim' -- smooth scrolling with C-u, C-d
 end)

@@ -9,3 +9,6 @@ vim.api.nvim_create_autocmd("VimEnter", {
     end
   end,
 })
+vim.cmd.set "tabstop=2"
+vim.cmd.set "shiftwidth=2"
+vim.cmd.set "expandtab"
