@@ -121,19 +121,19 @@ use {
   config = function()
     require("rest-nvim").setup({
       -- Open request results in a horizontal split
-      result_split_horizontal = false,
+      result_split_horizontal = true,
       -- Keep the http file buffer above|left when split horizontal|vertical
-      result_split_in_place = false,
+      result_split_in_place = true,
       -- stay in current windows (.http file) or change to results window (default)
-      stay_in_current_window_after_split = false,
+      stay_in_current_window_after_split = true,
       -- Skip SSL verification, useful for unknown certificates
-      skip_ssl_verification = false,
+      skip_ssl_verification = true,
       -- Encode URL before making request
       encode_url = true,
       -- Highlight request on run
       highlight = {
         enabled = true,
-        timeout = 150,
+        timeout = 500,
       },
       result = {
         -- toggle showing URL, HTTP info, headers at top the of result window
