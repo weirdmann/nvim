@@ -35,9 +35,20 @@ return require('packer').startup(function(use)
 		}
 	}
 	use {"vidocqh/data-viewer.nvim"}
-	use {"xiyaowong/transparent.nvim"}
+	use {"xiyaowong/transparent.nvim",
+config = function()
+  require 'transparent'.setup(
+  {
+    extra_groups = {
+      "NormalFloat",
+      "NvimTreeNormal"
+    }
+  }
+  )
+--  require('transparent').clear_prefix('lualine') -- clear background for lualine, looks kinda bad 
+end}
 	use { 'mbbill/undotree' }
-	use { "catppuccin/nvim", as = "catppuccin" }
+	use { "catppuccin/nvim" }
 	use { 'nvim-treesitter/nvim-treesitter',
 	run = ':TSUpdate'
 }	
