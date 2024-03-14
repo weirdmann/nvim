@@ -35,6 +35,7 @@ return require('packer').startup(function(use)
 		}
 	}
 	use {"vidocqh/data-viewer.nvim"}
+	use {"xiyaowong/transparent.nvim"}
 	use { 'mbbill/undotree' }
 	use { "catppuccin/nvim", as = "catppuccin" }
 	use { 'nvim-treesitter/nvim-treesitter',
