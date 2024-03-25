@@ -122,6 +122,7 @@ use {
 		})
 	end,
 }
+
 use {
   'nvim-lualine/lualine.nvim',
   requires = { 'nvim-tree/nvim-web-devicons', opt = true }
@@ -179,6 +180,66 @@ use {
     })
   end
 }
+
+use {
+        'VonHeikemen/lsp-zero.nvim',
+        requires = {
+            -- LSP Support
+            { 'neovim/nvim-lspconfig' },
+            { 'williamboman/mason.nvim' },
+            { 'williamboman/mason-lspconfig.nvim' },
+
+            -- Autocompletion
+            { 'hrsh7th/nvim-cmp' },
+            { 'hrsh7th/cmp-buffer' },
+            { 'hrsh7th/cmp-path' },
+            { 'saadparwaiz1/cmp_luasnip' },
+            { 'hrsh7th/cmp-nvim-lsp' },
+            { 'hrsh7th/cmp-nvim-lua' },
+
+            -- Snippets
+            { 'L3MON4D3/LuaSnip' },
+            { 'rafamadriz/friendly-snippets' },
+        },
+        config = function()
+            local status_lsp, lsp = pcall(require, "lsp-zero")
+            if not status_lsp then
+                return
+            end
+    
+            lsp.preset('recommended')
+            lsp.set_preferences({
+                set_lsp_keymaps = false
+            })
+    
+            lsp.on_attach(function()
+                local map = require('utils').map
+    
+                map('n', 'K', vim.lsp.buf.hover)
+                map('n', 'gd', vim.lsp.buf.definition)
+                map('n', 'gD', vim.lsp.buf.declaration)
+                map('n', 'gi', vim.lsp.buf.implementation)
+                map('n', 'go', vim.lsp.buf.type_definition)
+                map('n', 'gr', vim.lsp.buf.references)
+                map('n', '<C-k>', vim.lsp.buf.signature_help)
+                map('n', '<leader>r', vim.lsp.buf.rename)
+                map('n', '<leader>ca', vim.lsp.buf.code_action)
+                map('n', '<leader>f', vim.lsp.buf.format)
+                map('n', '<leader>t', '<cmd>TroubleToggle<cr>')
+            end)
+    
+            lsp.configure('dartls', { force_setup = true })
+            lsp.configure('ltex', {
+                cmd = { "ltex-ls" },
+                filetypes = { "markdown", "text" },
+                flags = { debounce_text_changes = 300 },
+            })
+    
+            lsp.setup()
+            lsp.nvim_workspace()
+        end
+    }
+
 -- lua with packer.nvim
 use {
   "max397574/better-escape.nvim",
